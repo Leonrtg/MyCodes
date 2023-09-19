@@ -1,0 +1,107 @@
+def func_encrypting():
+    
+    user_input1 = input("Enter your message you want to encrypt: ")
+    
+    # Save the input in a variable
+    saved_input1 = user_input1
+    
+    
+    # Initialize an empty list to store ASCII codes
+    ascii_codes = []
+    
+    # Iterate through each character in the sentence
+    for char in user_input1:
+        # Get the ASCII code for the character and append it to the list
+        ascii_code = ord(char)
+        ascii_codes.append(ascii_code)
+        
+    
+    # Display the ASCII codes
+    #print("ASCII codes for the sentence:", ascii_codes)
+        
+    for i in range(len(ascii_codes)):
+        if ascii_codes[i] == 32: 
+            continue
+            
+        ascii_codes[i] = ascii_codes[i] + 8 
+        
+        if ascii_codes[i] >= 122: 
+            ascii_codes[i] = ascii_codes[i] - 57
+        
+        
+    # Display the ASCII codes
+    #print("ASCII codes for the sentence:", ascii_codes)
+    
+    result_string = ""
+    
+    # Iterate through the ASCII codes and convert them to characters
+    for code in ascii_codes:
+        character = chr(code)
+        result_string += character  # Append each character to the result string
+    
+    # Print the resulting string
+    print("Your encrypted message is:", result_string)
+    
+    return
+
+def func_decrypting():
+    
+    user_input1 = input("Enter your message you want to decrypt: ")
+    
+    # Save the input in a variable
+    saved_input1 = user_input1
+    
+    
+    # Initialize an empty list to store ASCII codes
+    ascii_codes = []
+    
+    # Iterate through each character in the sentence
+    for char in user_input1:
+        # Get the ASCII code for the character and append it to the list
+        ascii_code = ord(char)
+        ascii_codes.append(ascii_code)
+        
+    
+    # Display the ASCII codes
+    #print("ASCII codes for the sentence:", ascii_codes)
+        
+    for i in range(len(ascii_codes)):
+        if ascii_codes[i] == 32: 
+            continue
+            
+        ascii_codes[i] = ascii_codes[i] - 8
+        
+        if ascii_codes[i] <= 65: 
+            ascii_codes[i] = ascii_codes[i] + 57
+        
+        
+    # Display the ASCII codes
+    #print("ASCII codes for the sentence:", ascii_codes)
+    
+    result_string = ""
+    
+    # Iterate through the ASCII codes and convert them to characters
+    for code in ascii_codes:
+        character = chr(code)
+        result_string += character  # Append each character to the result string
+    
+    # Print the resulting string
+    print("Your decrypted message is:", result_string)
+    
+    return
+
+
+user_input = input("""Hello. 
+If you want to encrypt a message, type 1. 
+If you want to decrypt a message, write 2: 
+""")
+
+if user_input == "1":
+    func_encrypting()
+    
+if user_input == "2":
+    func_decrypting()    
+
+
+
+
